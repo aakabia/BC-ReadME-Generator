@@ -178,7 +178,7 @@ function renderLicenseSection(license) {
       break;
   }
   // Above, I created a license section for the read me by returning a string with a switch statment.
-  // In this switch statment, my default area will be what is creating the license section of the read me. 
+  // In this switch statment, my default area will be what is creating the license section of the read me.
 
   return license;
 }
@@ -187,23 +187,48 @@ console.log(renderLicenseSection("MIT License"));
 
 // Above, I console.log to see if the function worked properly.
 
-
-
-
-
-
-
-
-
-
-
-
-
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
+
+  ${renderLicenseBadge(data.license)}
+
+  ## Table of Content
+  -[Description](#Description)
+  -[Installation](#Installation)
+  -[Usage](#Usage)
+  -[Licenses](#Licenses)
+  -[Contribution](#Contribution)
+  -[Test](#Test)
+  -[Questions](#Questions)
+
+
+  ##Description:
+  ${data.description}
+
+  ##Installation:
+  ${data.installation}
+
+  ##Usage:
+  ${data.usage}
+
+  ##Licenses:
+  ${renderLicenseSection(data.licenses)}
+
+  ##Contribution:
+  ${data.contribution}
+
+  ##Test:
+  ${data.test}
+
+  ##Questions:
+  ${data.questions}
+
+
+
 `;
+// Above I created a markdown of how the reead me should be created and I returned this markdown. 
 }
 
 module.exports = generateMarkdown;
