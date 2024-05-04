@@ -214,7 +214,7 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ##Licenses:
-  ${renderLicenseSection(data.licenses)}
+  ${renderLicenseSection(data.license)}
 
   ##Contribution:
   ${data.contribution}
@@ -223,7 +223,10 @@ function generateMarkdown(data) {
   ${data.test}
 
   ##Questions:
-  ${data.questions}
+   Please contact us with questions at:
+    Github: [GitHub](https://github.com/${data.gitHub})
+
+    Email: ${data.email}
 
 
 
