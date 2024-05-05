@@ -172,7 +172,7 @@ function renderLicenseSection(license) {
       break;
 
     default:
-      license = ` ## License   
+      license = `  License:   
  
  This project is licensed under the [${license}]${renderLicenseLink(license)} `;
       break;
@@ -183,7 +183,7 @@ function renderLicenseSection(license) {
   return license;
 }
 
-console.log(renderLicenseSection("MIT License"));
+//console.log(renderLicenseSection("MIT License"));
 
 // Above, I console.log to see if the function worked properly.
 
@@ -194,7 +194,7 @@ function generateMarkdown(data) {
 
   ${renderLicenseBadge(data.license)}
 
-  ## Table of Content
+## Table of Content
   -[Description](#Description)
   -[Installation](#Installation)
   -[Usage](#Usage)
@@ -204,25 +204,25 @@ function generateMarkdown(data) {
   -[Questions](#Questions)
 
 
-  ##Description:
+## Description
   ${data.description}
 
-  ##Installation:
+## Installation
   ${data.installation}
 
-  ##Usage:
+## Usage
   ${data.usage}
 
-  ##Licenses:
+## Licenses
   ${renderLicenseSection(data.license)}
 
-  ##Contribution:
+## Contribution
   ${data.contribution}
 
-  ##Test:
+## Test
   ${data.test}
 
-  ##Questions:
+## Questions
    Please contact us with questions at:
     Github: [GitHub](https://github.com/${data.gitHub})
 
@@ -231,7 +231,7 @@ function generateMarkdown(data) {
 
 
 `;
-// Above I created a markdown of how the reead me should be created and I returned this markdown. 
+  // Above I created a markdown of how the reead me should be created and I returned this markdown.
 }
 
 module.exports = generateMarkdown;
