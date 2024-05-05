@@ -3,6 +3,8 @@ const fs = require("fs");
 const markDown = require("./utils/generateMarkdown");
 const inquirer = require("inquirer");
 // Above are the packeges i will need. I used require to gain them.
+// Also, I had to use the inqurier 8.2.4 for this because the latest version does not work.
+
 // TODO: Create an array of questions for user input
 
 const validateEmail = (email) => {
@@ -10,8 +12,20 @@ const validateEmail = (email) => {
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return pattern.test(email);
 };
-
+// Above is a function used to validiate a email is typed in.
 const questions = [
+  {
+    type: "input",
+    name: "fileName",
+    message: "What type of file is this:",
+    validate: function (input) {
+      if (input.trim() === "") {
+        return "Please enter a file type!";
+      }
+      return true;
+    },
+  },
+
   {
     type: "input",
     name: "title",
@@ -135,10 +149,29 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, markDown(data), (err) =>
+    err ? console.error(err) : console.log("Success!")
+  );
+
+  // Above, I created a function to write a file and passed my exported markdown function for the data.
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((data) => {
+      writeToFile(data.fileName, data);
+    })
+
+    .catch(function (error) {
+      console.error("Error occurred:", error);
+    });
+
+  // Above, I created a promise function with inquirer to handle the data recieved.
+  // I call the write to file function in here and pass the filename and data as params.
+}
 
 // Function call to initialize app
 init();
