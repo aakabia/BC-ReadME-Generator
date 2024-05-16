@@ -16,7 +16,7 @@
 ## Description
   This application creates a personalized read me file for any user.
 
-  Link: [Video of Application](https://drive.google.com/file/d/1mmzIkhMImWAMtNKpm3RoMInRRuD3xsq6/view?usp=sharing) 
+  Link: [Video of Application](https://app.screencastify.com/v3/watch/TEkrb1O3HhiiuUTt1Xce) 
 
 ## Installation
   To install this application, you must use this challenge 7 folder and install any dependencies attached to the package.json file.
